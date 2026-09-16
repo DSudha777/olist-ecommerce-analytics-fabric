@@ -1,0 +1,13 @@
+CREATE TABLE dbo.fact_reviews
+AS
+SELECT
+    review_id,
+    order_id,
+    review_score,
+    review_comment_title,
+    review_comment_message,
+    review_creation_date,
+    review_answer_timestamp,
+    purchase_date_key,
+    customer_unique_id
+FROM Olist_Lakehouse.dbo.fact_reviews;
