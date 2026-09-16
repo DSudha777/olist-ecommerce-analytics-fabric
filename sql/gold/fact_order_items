@@ -1,0 +1,15 @@
+CREATE TABLE dbo.fact_order_items
+AS
+SELECT
+    order_id,
+    order_item_id,
+    product_id,
+    seller_id,
+    customer_unique_id,
+    purchase_date_key,
+    order_status,
+    shipping_limit_date,
+    price,
+    freight_value,
+    total_item_value
+FROM Olist_Lakehouse.dbo.fact_order_items;
