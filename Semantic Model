@@ -1,0 +1,53 @@
+Olist_Warehouse
+│
+├── Dimensions
+│   ├── dim_customer
+│   ├── dim_product
+│   ├── dim_seller
+│   └── dim_date
+│
+└── Facts
+    ├── fact_orders
+    ├── fact_order_items
+    ├── fact_payments
+    └── fact_reviews
+
+1. dim_customer[customer_unique_id] → fact_orders[customer_unique_id]
+
+dim_customer (1)
+       |
+       | customer_unique_id
+       ↓
+fact_orders (*)
+
+2.dim_customer[customer_unique_id] → fact_order_items[customer_unique_id]
+
+                 dim_customer
+                  /        \
+                 ↓          ↓
+          fact_orders   fact_order_items
+
+3.dim_product[product_id] → fact_order_items[product_id]
+4.dim_seller[seller_id] → fact_order_items[seller_id]
+5.dim_date[date_key] → fact_order_items[purchase_date_key]
+6.dim_date[date_key] → fact_orders[purchase_date_key]
+7.dim_date[date_key] → fact_payments[purchase_date_key]
+8.dim_date[date_key] → fact_reviews[purchase_date_key]
+9.dim_customer[customer_unique_id] → fact_payments[customer_unique_id]
+10.dim_customer[customer_unique_id] → fact_reviews[customer_unique_id]
+
+                    dim_customer
+                    /    |    |    \
+                   ↓     ↓    ↓     ↓
+            fact_orders  │  fact_payments
+                         │
+                         ↓
+                  fact_order_items
+                    ↑           ↑
+                    │           │
+              dim_product   dim_seller
+
+                     dim_date
+                    /   |   |   \
+                   ↓    ↓   ↓    ↓
+              Orders  Items Payments Reviews
