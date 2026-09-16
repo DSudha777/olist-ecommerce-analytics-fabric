@@ -1,0 +1,17 @@
+%%sql
+
+SELECT 'dim_customer' AS table_name, COUNT(*) AS row_count FROM dim_customer
+UNION ALL
+SELECT 'dim_product', COUNT(*) FROM dim_product
+UNION ALL
+SELECT 'dim_seller', COUNT(*) FROM dim_seller
+UNION ALL
+SELECT 'dim_date', COUNT(*) FROM dim_date
+UNION ALL
+SELECT 'fact_order_items', COUNT(*) FROM fact_order_items
+UNION ALL
+SELECT 'fact_orders', COUNT(*) FROM fact_orders
+UNION ALL
+SELECT 'fact_payments', COUNT(*) FROM fact_payments
+UNION ALL
+SELECT 'fact_reviews', COUNT(*) FROM fact_reviews;
