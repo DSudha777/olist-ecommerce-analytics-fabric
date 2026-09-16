@@ -1,1 +1,13 @@
--- Silver layer transformation for Olist orders
+CREATE OR REPLACE TABLE silver_orders
+USING DELTA
+AS
+SELECT
+    TRIM(order_id) AS order_id,
+    TRIM(customer_id) AS customer_id,
+    UPPER(TRIM(order_status)) AS order_status,
+    CAST(order_purchase_timestamp AS TIMESTAMP) AS order_purchase_timestamp,
+    CAST(order_approved_at AS TIMESTAMP) AS order_approved_at,
+    CAST(order_delivered_carrier_date AS TIMESTAMP) AS order_delivered_carrier_date,
+    CAST(order_delivered_customer_date AS TIMESTAMP) AS order_delivered_customer_date,
+    CAST(order_estimated_delivery_date AS TIMESTAMP) AS order_estimated_delivery_date
+FROM bronze_orders;
