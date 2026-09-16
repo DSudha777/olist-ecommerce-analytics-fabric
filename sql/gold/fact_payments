@@ -1,0 +1,11 @@
+CREATE TABLE dbo.fact_payments
+AS
+SELECT
+    order_id,
+    payment_sequential,
+    payment_type,
+    payment_installments,
+    payment_value,
+    purchase_date_key,
+    customer_unique_id
+FROM Olist_Lakehouse.dbo.fact_payments;
