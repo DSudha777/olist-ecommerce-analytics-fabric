@@ -107,7 +107,7 @@ The Bronze layer contains the original Olist CSV files loaded into the Microsoft
 
 # 🥈 Silver Layer – Data Cleaning & Transformation
 
-The Silver layer contains cleaned and transformed Delta tables.
+Cleaned, validated, and standardized Delta tables: deduplicated records, handled nulls, standardized column names/types, parsed dates, validated referential integrity.
 
 ### Data preparation activities
 
@@ -140,8 +140,6 @@ The Silver layer is designed to provide reliable, reusable datasets for the Gold
 ---
 
 # 🥇 Gold Layer – Business Analytics
-
-The Gold layer will transform the cleaned Silver data into business-friendly analytical datasets.
 
 Potential analytical areas include:
 
